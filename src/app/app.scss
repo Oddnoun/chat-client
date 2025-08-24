@@ -1,0 +1,229 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  font-family: 'Inter', sans-serif;
+}
+
+.info-panel {
+  padding: 0.75rem 1rem;
+  background-color: #fff3cd;
+  color: #664d03;
+  border-bottom: 1px solid #ffeeba;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  height: calc(100% - 3.5rem); /* Adjust based on info-panel height */
+}
+
+.messages {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.message-row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5rem; /* Reduced margin */
+}
+
+.language-markdown {
+  text-wrap: auto;
+}
+
+.message {
+  padding: 0.25rem 0.75rem; /* Further reduced top/bottom padding */
+  border-radius: 0.75rem;
+  max-width: 80%; /* Revert to 80% */
+  display: block; /* Ensure max-width works as expected */
+  font-size: 1rem;
+  line-height: 1.5;
+  word-wrap: break-word; /* Ensure text wraps */
+  overflow-wrap: break-word; /* Ensure text wraps */
+  word-break: break-word; /* Force break long words */
+
+  /* Added for markdown content */
+  p {
+    max-width: 100%;
+    word-break: break-all;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    font-weight: bold;
+    line-height: 1.2;
+  }
+
+  h1 { font-size: 2em; }
+  h2 { font-size: 1.5em; }
+  h3 { font-size: 1.2em; }
+  h4 { font-size: 1em; }
+  h5 { font-size: 0.9em; }
+  h6 { font-size: 0.8em; }
+
+  pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-all; /* Force break long words in code blocks */
+    max-width: 100%; /* Ensure pre/code blocks don't exceed message width */
+    overflow: auto; /* Add scrollbar if content overflows horizontally */
+    overflow-x: auto; /* Force horizontal scrollbar for pre blocks */
+  }
+
+  code {
+    display: block; /* Ensure inline code blocks wrap correctly */
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-all; /* Force break long words in code blocks */
+    text-wrap: auto; /* Modern property for intelligent text wrapping */
+  }
+
+  a {
+    color: #007bff;
+    text-decoration: underline;
+  }
+}
+
+.message-row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5rem; /* Reduced margin */
+  width: 100%; /* Ensure message-row takes full width */
+}
+
+.sent {
+  align-items: flex-end;
+
+  .message {
+    background-color: #0B93F6; /* iOS blue */
+    color: white;
+    border-radius: 18px 18px 0px 18px; /* Rounded corners, flat bottom-right */
+  }
+
+  .timestamp {
+    text-align: right;
+    margin-right: 0.5rem;
+  }
+}
+
+.received {
+  align-items: flex-start;
+
+  .message {
+    background-color: #E5E5EA; /* iOS light gray */
+    color: black;
+    border-radius: 18px 18px 18px 0px; /* Rounded corners, flat bottom-left */
+  }
+
+  .timestamp {
+    text-align: left;
+    margin-left: 0.5rem;
+  }
+}
+
+.timestamp {
+  font-size: 0.875rem;
+  color: #888;
+  margin-bottom: 0.25rem;
+}
+
+form {
+  display: flex;
+  padding: 1rem;
+  align-items: center; /* Align items vertically in the center */
+}
+
+input {
+  flex-grow: 1;
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+button {
+  margin-left: 1rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.clear-chat {
+  /* Remove margin-top as it's now in a flex container */
+  /* background-color: #dc3545; */ /* Keep original color or adjust */
+  /* color: white; */
+  /* border: none; */
+  /* border-radius: 0.75rem; */
+  /* padding: 0.75rem 1.5rem; */
+  /* cursor: pointer; */
+  /* font-size: 1rem; */
+  /* font-weight: 500; */
+  margin-left: 1rem; /* Add margin to separate from send button */
+  background-color: #dc3545; /* Example: a red color for clear */
+}
+
+.jump-to-bottom {
+  position: absolute;
+  bottom: 5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.jump-to-bottom.show {
+  opacity: 1;
+}
+
+.loading-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: space-around; /* Distribute dots evenly */
+  width: 4.8rem; /* Adjusted width (6rem * 0.8) */
+  height: 2.4rem; /* Adjusted height (3rem * 0.8) */
+  position: relative;
+
+  .dot {
+    width: 0.64rem; /* Size of the dots (0.8rem * 0.8) */
+    height: 0.64rem; /* Size of the dots (0.8rem * 0.8) */
+    background-color: #888; /* Grey color for the dots */
+    border-radius: 50%;
+    opacity: 0;
+    animation: dot-fade 1.4s infinite;
+
+    &:nth-child(1) { animation-delay: 0s; }
+    &:nth-child(2) { animation-delay: 0.2s; }
+    &:nth-child(3) { animation-delay: 0.4s; }
+  }
+}
+
+@keyframes dot-fade {
+  0%, 80%, 100% { opacity: 0; }
+  40% { opacity: 1; }
+}

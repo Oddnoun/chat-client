@@ -1,59 +1,53 @@
-# ChatClient
+# Chat Client
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.2.0.
+A simple chat client application built with Angular, featuring real-time messaging and streaming responses from a SignalR backend.
 
-## Development server
+## Quick Start
 
-To start a local development server, run:
+Follow these steps to get the chat client up and running on your local machine.
+
+### Prerequisites
+
+- Node.js (LTS version recommended)
+- npm (comes with Node.js)
+- Angular CLI (install globally: `npm install -g @angular/cli`)
+
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone <repository-url>
+   cd chat-client
+   ```
+
+2. Install the dependencies:
+
+   ```bash
+   npm install
+   ```
+
+### Running the Application
+
+To start the development server:
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+This will compile the application and open it in your default browser at `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Features
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- Real-time chat messaging
+- Streaming responses from the server
+- Markdown rendering for messages
+- Automatic scrolling to the latest message
 
-```bash
-ng generate component component-name
-```
+## Technologies Used
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- Angular
+- TypeScript
+- SignalR (client-side)
+- Marked.js (for Markdown parsing)
+- SCSS (for styling)
